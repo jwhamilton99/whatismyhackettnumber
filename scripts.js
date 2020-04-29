@@ -32,12 +32,12 @@ function computeExtended() {
 	var niPods = parseInt(document.getElementById("numiPods").value);
 	var idArr = ["numPeople","numDesktops","numNotebooks","numiPads","numNewtons","numiPhones","numiPods"];
 	for(var i = 0; i < idArr.length; i++) {
-		document.getElementById(idArr[i]).style.backgroundColor = "white";
+		document.getElementById(idArr[i]).style.borderColor = "black";
 	}
 	if(isNaN(nPeople) || isNaN(nDesktops) || isNaN(nNotebooks) || isNaN(niPads) || isNaN(nNewtons) || isNaN(niPhones) || isNaN(niPods) || nPeople == 0) {
 		for(var i = 0; i < idArr.length; i++) {
 			if(isNaN(parseInt(document.getElementById(idArr[i]).value))) {
-				document.getElementById(idArr[i]).style.backgroundColor = "red";
+				document.getElementById(idArr[i]).style.borderColor = "red";
 			}
 		}
 		return "Please enter your data.";
