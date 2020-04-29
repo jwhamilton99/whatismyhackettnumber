@@ -16,7 +16,12 @@ function computeBase() {
 		return "Please enter your data.";
 	} else {
 		bHN = (Math.round(((nDesktops+nNotebooks+niPads)/nPeople)*10)/10);
-		document.getElementById("dOutput").innerHTML = "This means that your household has <b>"+bHN+"</b> computers for every person living there.";
+		var pf = "s";
+		var hr = (Math.round((bHN/20.6)*10)/10);
+		if(bHN/20.6 == 1) {
+			pf = "";
+		}
+		document.getElementById("dOutput").innerHTML = "This means that your household has <b>"+bHN+"</b> computers for every person living there. That's "+hr+" Hackett"+pf+".";
 		return "Your Hackett Number is: <b>"+bHN+"</b>";
 	}
 	
@@ -39,8 +44,8 @@ function computeExtended() {
 			if(isNaN(parseInt(document.getElementById(idArr[i]).value))) {
 				document.getElementById(idArr[i]).style.borderColor = "red";
 			}
+			return "Please enter your data.";
 		}
-		return "Please enter your data.";
 	} else {
 		eHN = (Math.round(((nDesktops+nNotebooks+niPads+nNewtons+niPhones+niPods)/nPeople)*10)/10);
 		return "Your extended Hackett Number is: <b>"+eHN+"</b>";
