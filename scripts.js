@@ -2,6 +2,15 @@ var bHN = 0
 var eHN = 0
 
 function compute() {
+	var idArr = ["numPeople","numDesktops","numNotebooks","numiPads","numNewtons","numiPhones","numiPods"];
+	for(var i = 0; i < idArr.length; i++) {
+		document.getElementById(idArr[i]).style.borderColor = "black";
+	}
+	for(var i = 0; i < idArr.length; i++) {
+		if(isNaN(parseInt(document.getElementById(idArr[i]).value))) {
+			document.getElementById(idArr[i]).style.borderColor = "red";
+		}
+	}
 	document.getElementById("bOutput").innerHTML = computeBase();
 	document.getElementById("eOutput").innerHTML = computeExtended();
 }
@@ -35,17 +44,8 @@ function computeExtended() {
 	var nNewtons = parseInt(document.getElementById("numNewtons").value);
 	var niPhones = parseInt(document.getElementById("numiPhones").value);
 	var niPods = parseInt(document.getElementById("numiPods").value);
-	var idArr = ["numPeople","numDesktops","numNotebooks","numiPads","numNewtons","numiPhones","numiPods"];
-	for(var i = 0; i < idArr.length; i++) {
-		document.getElementById(idArr[i]).style.borderColor = "black";
-	}
 	if(isNaN(nPeople) || isNaN(nDesktops) || isNaN(nNotebooks) || isNaN(niPads) || isNaN(nNewtons) || isNaN(niPhones) || isNaN(niPods) || nPeople == 0) {
-		for(var i = 0; i < idArr.length; i++) {
-			if(isNaN(parseInt(document.getElementById(idArr[i]).value))) {
-				document.getElementById(idArr[i]).style.borderColor = "red";
-			}
-			return "Please enter your data.";
-		}
+		return "Please enter your data.";
 	} else {
 		eHN = (Math.round(((nDesktops+nNotebooks+niPads+nNewtons+niPhones+niPods)/nPeople)*10)/10);
 		return "Your extended Hackett Number is: <b>"+eHN+"</b>";
